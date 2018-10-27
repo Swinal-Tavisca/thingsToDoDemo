@@ -1,0 +1,25 @@
+.twilio-card {
+    max-width: 400px;
+    background-color:whitesmoke;
+  }
+  .example-header-image {
+    /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); */
+    background-size: cover;
+  }
+  .sizing{
+    height:100px;
+    width: 70px;
+    padding-left: 80px;
+  }
+  .details-section{
+    padding-left: 50px;
+  }
+  .small-logo{
+    height: 35px;
+    width:  35px;
+    background-size: cover;
+  }
+.input-text{
+  height :28px;
+}
+

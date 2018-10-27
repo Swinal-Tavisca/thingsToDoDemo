@@ -1,0 +1,39 @@
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: DodgerBlue;
+  overflow: hidden;
+}
+.Data {
+  /*border: 1px solid red;*/
+  display:flex;
+  width: 30%;
+  height: 837px;
+  text-align: center;
+  font-size: 13px; 
+  flex-grow: 1;
+  flex-direction: column;
+  overflow: scroll; 
+}
+.Map {
+  /*border: 1px solid red;*/
+  width: 70%;
+  height: 837px;
+  text-align: center;
+  font-size: 13px;
+}
+@media only screen and (max-width: 600px) {
+  .flex-container {
+    display: flex;
+    flex-direction:column-reverse;    
+  }
+  .Data{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    }
+  .Map{
+    width: 100%;
+    
+   }
+}

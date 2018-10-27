@@ -1,0 +1,45 @@
+.example-icon {
+    padding: 0 14px;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  
+  .vertical-divider {
+    padding-right: 10px;
+    border-top-width: 0;
+    border-right-width: 1px;
+    border-right-style: solid;
+    height: 50%;
+  }
+  .example-form-field {
+ width:30%;
+ height: 141.4%;
+  }
+  
+  /* Highlighting rules for nav menu items */
+  a.link-active,
+  a.link-active a:hover,
+  a.link-active a:focus {
+      background-color: #4189C7;
+      color: white;
+  }
+  .space{
+    padding-right: 10px;
+  }
+  .Filter{
+    padding-top: 18px; 
+  }
+  .example-panel-red .mat-select-panel {
+    background: rgba(255, 0, 0, 0.5);
+  }
+  
+  .example-panel-green .mat-select-panel {
+    background: rgba(0, 255, 0, 0.5);
+  }
+  
+  .example-panel-blue .mat-select-panel {
+    background: rgba(0, 0, 255, 0.5);
+  }
+  

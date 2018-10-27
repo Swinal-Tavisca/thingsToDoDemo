@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Handlebars.js tutorial</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+            <i><h1 class="heading">Air Search Sample Data</h1></i><br>
+            <ul id="content"></ul>
+            <script id="people-template" type="text/x-handlebars-template">
+                {{#people}}
+                <li class="people">
+                        <img alt="{{City}}" src="https://maps.gstatic.com/mapfiles/place_api/icons/airport-71.png ">
+                    <div class="info ">
+                        <h3>Layover City: {{City}}</h3>
+                        <h5>Arrival Terminal: {{ArrivalTerminal}}</h5>
+                        <h5>Departure Terminall: {{DepartureTerminal}}</h5>
+                        <h5>Duration: {{DurationMinutes}}minutes</h5>
+                        <a class="link" href="thingstodoproject-dev.ap-south-1.elasticbeanstalk.com/restaurant?location={{City}}&ArrivalDateTime={{ArrivalDateTime}}&DepartureDateTime={{DepartureDateTime}}&ArrivalTerminal={{ArrivalTerminal}}&DepartureTerminal={{DepartureTerminal}}&DurationMinutes={{DurationMinutes}}">Things To Do in {{DurationMinutes}} minutes</a>
+        
+                    </div>
+                </li>
+                {{/people}}
+            </script>
+    <script src="handlebars-v4.0.11.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

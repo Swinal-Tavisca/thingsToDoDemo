@@ -1,0 +1,34 @@
+<div id="narrow" class="demo-card-container">
+  <div *ngFor="let data of dataService.response">
+    <mat-card class="example-card">
+      <div class="mat-cards">
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+        <div>    
+          <mat-card-header>
+           <mat-card-title>Name: {{ data.name }}</mat-card-title>
+            <mat-card-subtitle>Rating : {{ data.rating }}</mat-card-subtitle>
+          </mat-card-header>
+          <div class="space">
+            <!-- <a (click)="MoreInfo({{data.placeID}})">
+              <mat-icon>arrow_forward_ios</mat-icon>
+          </a> -->
+          <button type="button" (click)="MoreInfo(data.placeID)"><mat-icon>arrow_forward_ios</mat-icon></button>
+          </div>
+        </div>
+      </div>
+          <!-- <mat-card-actions>
+              <a  mat-raised-button>
+                  <mat-icon>directions</mat-icon>
+                  directions
+                  
+              </a>
+              <a  mat-raised-button>
+                  <mat-icon>details</mat-icon>
+                  More Info
+              </a>
+          </mat-card-actions> -->
+        </mat-card>
+        <br>
+  </div>
+</div>
+  

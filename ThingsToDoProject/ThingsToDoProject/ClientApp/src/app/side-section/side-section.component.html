@@ -1,0 +1,121 @@
+<div  *ngIf ="response">
+
+<mat-card class="example-card">
+
+<mat-card-header>
+
+<mat-card-title><b>{{response.name}}</b><br></mat-card-title>
+
+</mat-card-header>
+
+<img mat-card-image src={{response.image}} alt="Photo of a Shiba Inu">
+
+<b>Duration:</b> {{response.duration}}<br>
+
+<b>Distance:</b> {{response.distance}}<br>
+
+<mat-card-content>
+
+<b>Open Status:</b>
+
+<mat-accordion>
+
+<mat-expansion-panel (opened)="panelOpenState = true"(closed)="panelOpenState = false">
+
+<mat-expansion-panel-header>
+
+<mat-panel-title>
+
+Week Days
+
+</mat-panel-title>
+
+</mat-expansion-panel-header>
+
+<p>{{response.weekDaysDetail[0]}}</p>
+
+<p>{{response.weekDaysDetail[1]}}</p>
+
+<p>{{response.weekDaysDetail[2]}}</p>
+
+<p>{{response.weekDaysDetail[3]}}</p>
+
+<p>{{response.weekDaysDetail[4]}}</p>
+
+<p>{{response.weekDaysDetail[5]}}</p>
+
+<p>{{response.weekDaysDetail[6]}}</p>
+
+</mat-expansion-panel>
+
+</mat-accordion>
+
+<p>
+
+</p>
+<br>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Set Reminder
+      </mat-panel-title>
+      <mat-panel-description>
+        <mat-icon>notifications</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-form-field>
+      <input matInput placeholder="Mobile Number" [(ngModel)]="value">
+    </mat-form-field>
+    <button mat-button (click)="SetReminder()">Ok</button>
+  </mat-expansion-panel>
+  </mat-accordion>
+  <br>
+<b>Reviews:</b>
+<br>
+
+<div *ngFor ="let review of response.reviews">
+
+<mat-accordion>
+
+<mat-expansion-panel (opened)="panelOpenState = true"
+
+(closed)="panelOpenState = false">
+
+<mat-expansion-panel-header>
+
+<mat-panel-title>
+
+{{review.author_name}}
+
+</mat-panel-title>
+
+<mat-panel-description>
+
+Rating: {{review.rating}}<br>
+
+</mat-panel-description>
+
+</mat-expansion-panel-header>
+
+<p>{{review.text}}</p>
+
+</mat-expansion-panel>
+
+</mat-accordion>
+
+</div>
+
+</mat-card-content>
+
+<!-- <button mat-raised-button mat-list-item (click)="openDialog()">
+
+<mat-icon>notifications</mat-icon>Set Reminder
+
+</button> -->
+
+
+
+</mat-card>
+</div>
+<img *ngIf="loader" class="loader" src="../src/assets/images/loader.gif">

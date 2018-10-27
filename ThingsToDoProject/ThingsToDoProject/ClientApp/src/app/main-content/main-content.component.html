@@ -1,0 +1,5 @@
+<div class="flex-container">
+    <div style="background-color: #e6e6e6;" class="Data" queryParamsHandling="preserve"><app-data (toggle)="toggleSideSection()" (info)="MoreInfo($event)"></app-data></div>
+    <app-side-section [isOpen]="sideSectionIsOpened" [PlaceId]="PlaceId" ></app-side-section>
+    <div style="background-color:lightblue;" class="Map" queryParamsHandling="preserve"><app-map (click)="toggleSideSection()"></app-map> </div>
+</div>

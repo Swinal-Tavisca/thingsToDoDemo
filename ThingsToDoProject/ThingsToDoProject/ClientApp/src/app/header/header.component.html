@@ -1,0 +1,103 @@
+<div>
+        <mat-toolbar color="primary">
+            <mat-toolbar-row>
+                <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+                    <mat-icon>menu</mat-icon>
+                </button>
+      
+                <span>Let's Explore</span>
+                <mat-icon>flight_land</mat-icon>
+                <span class="example-spacer"></span>
+                <mat-form-field class="example-form-field">
+                        <input matInput placeholder="Search" matInput [formControl]="myControl" [matAutocomplete]="auto" [(ngModel)]="value">
+                        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                  {{option}}
+                                </mat-option>
+                              </mat-autocomplete>
+                            </mat-form-field>
+                              <div class="example-button-row">
+                              <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                                    <mat-icon>close</mat-icon>
+                                  </button>
+                                  
+                        <button mat-mini-fab class="searchbutton" (click)='check()' [routerLink]='["/"+value]' [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }' queryParamsHandling="preserve" mat-list-item>
+                            <mat-icon matSuffix>search</mat-icon>
+                        </button>
+                    </div>
+                     
+                      <span class="example-spacer"></span>
+                      <mat-form-field>
+                        <mat-select [(value)]="selected">
+                          <mat-option ng-selected value="outside" (click)="setAirportArea('InsideOutsideAirport')" [routerLink]='["/attractions"]' queryParamsHandling="preserve">Both Inside/Outside</mat-option>
+                          <mat-option value="inside" (click)="setAirportArea('insideAirport')" [routerLink]='["/restaurant"]' queryParamsHandling="preserve">Inside Airport</mat-option>
+                          <mat-option value="outside" (click)="setAirportArea('outsideAirport')" [routerLink]='["/attractions"]' queryParamsHandling="preserve">Outside Airport</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <mat-sidenav-container fxFlexFill>
+            <mat-sidenav #sidenav>
+                <mat-nav-list>
+                      <div *ngIf="selected=='outside'"><a (click)="sidenav.toggle()" [routerLink]='["/attractions"]' [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }' queryParamsHandling="preserve" mat-list-item>
+                          <mat-icon>home</mat-icon> Home
+                      </a></div>
+                      <div *ngIf="selected=='inside'"><a (click)="sidenav.toggle()" [routerLink]='["/restaurant"]' [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }' queryParamsHandling="preserve" mat-list-item>
+                        <mat-icon>home</mat-icon> Home
+                    </a></div>
+                    <a (click)="sidenav.toggle()" [routerLink]='["/restaurant"]' [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }' queryParamsHandling="preserve" mat-list-item>
+                        <mat-icon>store</mat-icon> Restaurant
+                    </a>
+                    <a (click)="sidenav.toggle()" [routerLink]='["/store"]' [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }' queryParamsHandling="preserve" mat-list-item>
+                        <mat-icon>store</mat-icon> Store
+                    </a>
+                   
+                    <button (click)="sidenav.toggle()" mat-raised-button mat-list-item>
+                        <mat-icon>notifications</mat-icon>Set Reminder
+                    </button>
+                    <a (click)="sidenav.toggle()" mat-list-item>
+                        <mat-icon>close</mat-icon> Close
+                    </a>
+                </mat-nav-list>
+            </mat-sidenav>
+            <mat-sidenav-content fxFlexFill>
+                <div fxShow="true" fxHide.lt-md="true">
+                    <mat-toolbar>
+                        <mat-toolbar-row>
+                            <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+                            <div *ngIf="selected=='outside'"><a mat-stroked-button [routerLink]='["/attractions"]' [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }' queryParamsHandling="preserve" mat-button>
+                                <mat-icon>home</mat-icon> Home
+                            </a></div>
+                            <div *ngIf="selected=='inside'"><a mat-stroked-button [routerLink]='["/restaurant"]' [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }' queryParamsHandling="preserve" mat-button>
+                              <mat-icon>home</mat-icon> Home
+                          </a></div>
+                            <mat-divider class="vertical-divider"></mat-divider>
+                            <div class="space"></div>
+                            <div *ngIf="selected=='outside'"><a mat-stroked-button [routerLink]='["/attractions"]' [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }' queryParamsHandling="preserve" mat-button>
+                                <mat-icon>store</mat-icon>Attractions
+                            </a></div>
+                            <div class="space"></div>
+                            <a mat-stroked-button   [routerLink]='["/restaurant"]' [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }' queryParamsHandling="preserve" mat-button>
+                                <mat-icon>store</mat-icon> Restaurant
+                            </a>
+                            <div class="space"></div>
+                            <a mat-stroked-button [routerLink]='["/store"]' [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }' queryParamsHandling="preserve" mat-button>
+                                <mat-icon>store</mat-icon> Store
+                            </a>
+                           
+                            <span class="example-spacer"></span>
+                            <span layout="row"><hr flex/>PNQ - DEL - IXC <hr flex/></span>
+                            <span class="example-spacer"></span>
+                            <button mat-raised-button (click)="openDialog()">
+                                <mat-icon>notifications</mat-icon>Set Reminder
+                            </button>
+                        </mat-toolbar-row>
+                    </mat-toolbar>
+                </div>
+      
+                <router-outlet ></router-outlet>
+            </mat-sidenav-content>
+        </mat-sidenav-container>
+        
+      </div>
+      

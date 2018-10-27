@@ -1,0 +1,31 @@
+:host {
+    box-sizing: border-box;
+    display: none;
+    position: absolute;
+    margin-left: 30%;
+    top: 8vh;
+    width: 300px;
+    height: 90%;
+    padding: 20px 10px;
+    z-index: 4;
+    background: #ccc;
+  }
+  
+  :host.is-open {
+    display: block;
+  }
+  img{
+
+    width: 280px;
+    
+    }
+    
+    .example-card{
+    
+    overflow-y: auto;
+    
+    overflow-x: hidden;
+    
+    height: 76vh;
+    
+    }

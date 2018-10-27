@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.4;
+    padding: 50px;
+    background-color: #EAEAEA;
+}
+
+.heading {
+    text-align: center;
+}
+
+#content {
+    margin: 0 auto;
+    width: 50%;
+}
+
+.people {
+    background-color: #FFF;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.people * {
+    color: #585961;
+}
+
+.people img {
+    float: left;
+    margin-right: 10px;
+}
+.link{
+    float: right;
+    color: green;
+}
